@@ -24,19 +24,22 @@ function initMap() {
 
     directionsService.route(route,
         function (response, status) { // anonymous function to capture directions
-            if (status !== 'OK') {
-                window.alert('Directions request failed due to ' + status);
-                return;
-            } else {
-                directionsRenderer.setDirections(response); // Add route to the map
-                var directionsData = response.routes[0].legs[0]; // Get data about the mapped route
-                if (!directionsData) {
-                    window.alert('Directions request failed');
-                    return;
-                }
-                else {
-                    document.getElementById('msg').innerHTML += " Driving distance is " + directionsData.distance.text + " (" + directionsData.duration.text + ").";
-                }
-            }
+            console.log(status);
+            console.log(response);
+            console.log(response.routes[0].legs[0].distance.text);
+            // if (status !== 'OK') {
+            //     window.alert('Directions request failed due to ' + status);
+            //     return;
+            // } else {
+            //     directionsRenderer.setDirections(response); // Add route to the map
+            //     var directionsData = response.routes[0].legs[0]; // Get data about the mapped route
+            //     if (!directionsData) {
+            //         window.alert('Directions request failed');
+            //         return;
+            //     }
+            //     else {
+            //         document.getElementById('msg').innerHTML += " Driving distance is " + directionsData.distance.text + " (" + directionsData.duration.text + ").";
+            //     }
+            // }
         });
 }
